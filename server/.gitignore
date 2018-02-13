@@ -91,6 +91,9 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
+#databases
+*.sqlite
+
 ### NetBeans ###
 nbproject/private/
 build/
