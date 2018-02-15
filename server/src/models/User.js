@@ -36,6 +36,8 @@ module.exports = (sequelize, DataTypes) => {
   }
 
   User.associate = function (models) {
+    User.hasMany(models.ConversationUser)
+    User.hasMany(models.Message)
   }
 
   return User

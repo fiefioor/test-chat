@@ -1,0 +1,27 @@
+[
+  {
+    "UserId": 1,
+    "ConversationId": 1,
+    "role": 1
+  },
+  {
+    "UserId": 2,
+    "ConversationId": 1,
+    "role": 2
+  },
+  {
+    "UserId": 3,
+    "ConversationId": 1,
+    "role": 2
+  },
+  {
+    "UserId": 2,
+    "ConversationId": 2,
+    "role": 1
+  },
+  {
+    "UserId": 1,
+    "ConversationId": 2,
+    "role": 2
+  }
+]

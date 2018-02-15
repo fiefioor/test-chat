@@ -33,6 +33,14 @@
         @click="navigateTo({name: 'register'})">
         Sign Up
       </v-btn>
+
+      <v-btn
+        v-if="$store.state.isUserLoggedIn"
+        flat
+        dark
+        @click="navigateTo({name: 'logout'})">
+        Logout
+      </v-btn>
     </v-toolbar-items>
   </v-toolbar>
 </template>
@@ -52,6 +60,6 @@ export default {
   cursor: pointer;
 }
 .home:hover {
-  color: #E9E;
+  color: magenta;
 }
 </style>

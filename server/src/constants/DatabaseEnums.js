@@ -1,0 +1,4 @@
+module.exports = {
+  CONVERSATION_USER_ADMIN: 1,
+  CONVERSATION_USER_REGULAR: 2
+}

@@ -3,6 +3,8 @@ import Router from 'vue-router'
 import HelloWorld from '@/components/HelloWorld'
 import Register from '@/components/Register'
 import Login from '@/components/Login'
+import Dashboard from '@/components/Dashboard'
+import Conversation from '@/components/Conversation'
 
 Vue.use(Router)
 
@@ -22,6 +24,22 @@ export default new Router({
       path: '/login',
       name: 'login',
       component: Login
+    },
+    {
+      path: '/dashboard',
+      name: 'dashboard',
+      component: Dashboard,
+      auth: true
+    },
+    {
+      path: '*',
+      redirect: 'dashboard'
+    },
+    {
+      path: '/conversation/:id',
+      name: 'conversation',
+      component: Conversation,
+      auth: true
     }
   ]
 })
