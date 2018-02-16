@@ -4,18 +4,30 @@
       <input ref="inputField" autofocus v-model="message" type="text"/>
       <button :disabled="message === ''">Send</button>
     </form>
+    <div class="error" v-html="error" />
+    <br>
   </div>
 </template>
 <script>
+import ConversationService from '@/services/ConversationService'
+
 export default {
   data () {
     return {
-      message: ''
+      message: '',
+      error: null
     }
   },
   methods: {
-    sendMessage (event) {
+    async sendMessage (event) {
       event.preventDefault()
+      try {
+        await ConversationService.sendMessage(this.$route.params.id, {
+          content: this.message
+        })
+      } catch (error) {
+        this.error = error.response.data.error
+      }
       this.message = ''
     }
   },

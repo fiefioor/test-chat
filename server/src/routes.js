@@ -20,4 +20,9 @@ module.exports = (app) => {
   app.get('/conversation/:id',
     isAuthenticated,
     ConversationController.getMessages)
+
+  app.post('/conversation/:id/sendMessage',
+    isAuthenticated,
+    ConversationController.sendMessage
+  )
 }

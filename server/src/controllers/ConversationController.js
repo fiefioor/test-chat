@@ -45,5 +45,20 @@ module.exports = {
         message: err.message
       })
     }
+  },
+  async sendMessage (req, res) {
+    try {
+      const conversationId = req.params.id
+      let message = req.body
+      message.UserId = req.user.id
+      message.ConversationId = conversationId
+      message = await Message.create(message)
+      res.send(message)
+    } catch (err) {
+      res.status(500).send({
+        error: 'an error has occured trying to post message',
+        message: err.message
+      })
+    }
   }
 }

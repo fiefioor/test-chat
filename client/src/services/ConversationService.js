@@ -6,5 +6,8 @@ export default {
   },
   show (conversationId) {
     return Api().get(`conversation/${conversationId}`)
+  },
+  sendMessage (conversationId, message) {
+    return Api().post(`conversation/${conversationId}/sendMessage`, message)
   }
 }
