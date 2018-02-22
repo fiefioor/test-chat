@@ -5,6 +5,7 @@ import Register from '@/components/Register'
 import Login from '@/components/Login'
 import Dashboard from '@/components/Dashboard'
 import Conversation from '@/components/Conversation'
+import Logout from '@/components/Logout'
 
 Vue.use(Router)
 
@@ -26,20 +27,26 @@ export default new Router({
       component: Login
     },
     {
+      path: '/logout',
+      name: 'logout',
+      component: Logout,
+      auth: true
+    },
+    {
       path: '/dashboard',
       name: 'dashboard',
       component: Dashboard,
       auth: true
     },
     {
-      path: '*',
-      redirect: 'dashboard'
-    },
-    {
       path: '/conversation/:id',
       name: 'conversation',
       component: Conversation,
       auth: true
+    },
+    {
+      path: '*',
+      redirect: 'dashboard'
     }
   ]
 })

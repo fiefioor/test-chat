@@ -50,8 +50,9 @@ export default {
           password: this.password
         })
         this.$store.dispatch('setToken', response.data.token)
+        this.$store.dispatch('setTokenExpAt', response.data.tokenExpAt)
         this.$store.dispatch('setUser', response.data.user)
-        this.router.push({
+        this.$router.push({
           name: 'dashboard'
         })
       } catch (error) {

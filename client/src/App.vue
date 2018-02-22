@@ -2,7 +2,7 @@
   <div id="app">
     <v-app>
       <page-header />
-      <main v-if="$store.state.isUserLoggedIn">
+      <main v-if="isLoggedIn">
         <v-container fluid>
           <v-layout row wrap>
         <v-flex xs2>
@@ -32,6 +32,7 @@
 <script>
 import PageHeader from '@/components/Header.vue'
 import ConversationService from '@/services/ConversationService'
+import Store from '@/store/store'
 
 export default {
   name: 'App',
@@ -45,6 +46,18 @@ export default {
   },
   async mounted () {
     this.items = (await ConversationService.index()).data
+  },
+  computed: {
+    isLoggedIn () {
+      return Store.state.isUserLoggedIn
+    }
+  },
+  watch: {
+    async isLoggedIn () {
+      if (Store.state.isUserLoggedIn) {
+        this.items = (await ConversationService.index()).data
+      }
+    }
   },
   methods: {
     navigateTo (route) {

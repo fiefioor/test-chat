@@ -13,6 +13,9 @@ module.exports = (app) => {
   app.post('/login',
     AuthenticationController.login)
 
+  app.get('/logout',
+    AuthenticationController.logout)
+
   app.get('/conversation',
     isAuthenticated,
     ConversationController.index)

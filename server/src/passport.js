@@ -17,7 +17,7 @@ passport.use(
           id: jwtPayload.id
         }
       })
-      if (!user) {
+      if (!user || jwtPayload.exp < Math.floor(new Date() / 1000) - 10000) {
         return done(new Error(), false)
       }
       return done(null, user)

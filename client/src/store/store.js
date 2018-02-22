@@ -12,7 +12,8 @@ export default new Vuex.Store({
   state: {
     token: null,
     user: null,
-    isUserLoggedIn: false
+    isUserLoggedIn: false,
+    tokenExpAt: 0
   },
   mutations: {
     setToken (state, token) {
@@ -25,6 +26,9 @@ export default new Vuex.Store({
     },
     setUser (state, user) {
       state.user = user
+    },
+    setTokenExpAt (state, tokenExpAt) {
+      state.tokenExpAt = tokenExpAt
     }
   },
   actions: {
@@ -33,6 +37,14 @@ export default new Vuex.Store({
     },
     setUser ({commit}, user) {
       commit('setUser', user)
+    },
+    setTokenExpAt ({commit}, tokenExpAt) {
+      commit('setTokenExpAt')
+    }
+  },
+  getters: {
+    isUserLoggedIn (state) {
+      return state.isUserLoggedIn
     }
   }
 })

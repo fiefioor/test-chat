@@ -7,7 +7,7 @@ export const eventChannel = new Vue()
 
 export default {
   init () {
-    this.socket = io('http://localhost:8081')
+    this.socket = io('http://localhost:8081', { reconnection: false })
 
     this.socket.on(chatConstants.CHAT_MESSAGE_TO_CLIENT, (email, content, room, createdAt) => {
       eventChannel.$emit(events.NEW_MESSAGE_FROM_SERVER, {email, room, content, createdAt})
